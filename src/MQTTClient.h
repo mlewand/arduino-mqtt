@@ -67,11 +67,7 @@ class MQTTClient {
 
   void onMessage(MQTTClientCallbackSimple cb);
   void onMessageAdvanced(MQTTClientCallbackAdvanced cb);
-  void onMessageAdvanced(MQTTClientCallbackAdvanced cb, MQTTClient* ref) {
-    this->callback.client = ref;
-    this->callback.simple = nullptr;
-    this->callback.advanced = cb;
-  }
+  void onMessageAdvanced(MQTTClientCallbackAdvanced cb, MQTTClient* ref);
 
   void setClockSource(MQTTClientClockSource cb);
 

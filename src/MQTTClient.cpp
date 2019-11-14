@@ -152,6 +152,12 @@ void MQTTClient::onMessageAdvanced(MQTTClientCallbackAdvanced cb) {
   this->callback.advanced = cb;
 }
 
+void MQTTClient::onMessageAdvanced(MQTTClientCallbackAdvanced cb, MQTTClient* ref) {
+  this->callback.client = ref;
+  this->callback.simple = nullptr;
+  this->callback.advanced = cb;
+}
+
 void MQTTClient::setClockSource(MQTTClientClockSource cb) {
   this->timer1.millis = cb;
   this->timer2.millis = cb;
